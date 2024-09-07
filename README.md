@@ -1,5 +1,5 @@
 # Leetcode
-https://leetcode.com/problems/middle-of-the-linked-list/description/
+876.https://leetcode.com/problems/middle-of-the-linked-list/description/
 class Solution {
 public:
     int size(ListNode* head)
@@ -22,5 +22,23 @@ public:
             tmp=tmp->next;
         }
         return tmp;
+    }
+};
+141.https://leetcode.com/problems/linked-list-cycle/description/
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        ListNode* slow=head;
+        ListNode* fast=head;
+        while(fast!=NULL && fast->next!=NULL)
+        {
+            slow=slow->next;
+            fast=fast->next->next;
+            if(slow==fast)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 };
