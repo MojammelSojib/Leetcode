@@ -87,3 +87,38 @@ public:
         
     }
 };
+
+19.https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+class Solution {
+public:
+    int size(ListNode *head)
+    {
+        ListNode* tmp=head;
+        int cnt=0;
+        while(tmp!=NULL)
+        {
+            cnt++;
+            tmp=tmp->next;
+        }
+        return cnt;
+    }
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        int sz=size(head);
+        ListNode* tmp=head;
+        int pos=sz-n;
+        if(pos==0) 
+        {
+            return
+            head->next;
+        }
+        for(int i=1;i<=pos-1;i++)
+        {
+            tmp=tmp->next;
+        }
+        ListNode* deletedNode=tmp->next;
+        tmp->next=tmp->next->next;
+        delete deletedNode;
+        //cout<<tmp<<endl;
+        return head;
+    }
+};
