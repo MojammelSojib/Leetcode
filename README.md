@@ -501,3 +501,9 @@ public:
         return head->data;  
     }
 };
+
+
+https://www.naukri.com/code360/problems/kevin-s-stack-problem_1169465?leftPanelTabValue=SOLUTION
+{
+solve this
+}
