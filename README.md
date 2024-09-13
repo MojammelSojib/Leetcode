@@ -421,3 +421,83 @@ void reverseStack(stack<int> &s) {
 
 
 
+
+https://www.naukri.com/code360/problems/implement-stack-with-linked-list_630475?leftPanelTabValue=PROBLEM
+
+/****************************************************************
+
+    Following is the class structure of the Node class:
+
+        class Node
+        {
+        public:
+            int data;
+            Node *next;
+            Node()
+            {
+                this->data = 0;
+                next = NULL;
+            }
+            Node(int data)
+            {
+                this->data = data;
+                this->next = NULL;
+            }
+            Node(int data, Node* next)
+            {
+                this->data = data;
+                this->next = next;
+            }
+        };
+
+
+*****************************************************************/
+
+class Stack
+{
+    //Write your code here
+     Node* head;
+    int sz;
+
+public:
+    Stack()
+    {
+        head=NULL;
+        sz=0;
+    }
+
+    int getSize()
+    {
+        //Write your code here
+        return sz;
+    }
+
+    bool isEmpty()
+    {
+        return sz == 0;
+        
+    }
+
+    void push(int data)
+    {
+        sz++;
+        Node *newNode=new Node(data);
+        newNode->next = head;
+        head=newNode;
+    }
+
+    void pop()
+    {
+         if (isEmpty()) return;
+         Node* temp = head;
+         head = head->next;
+         delete temp;
+         sz--;
+    }
+
+    int getTop()
+    {
+        if (isEmpty()) return -1;
+        return head->data;  
+    }
+};
