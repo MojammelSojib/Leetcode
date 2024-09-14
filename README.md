@@ -507,3 +507,58 @@ https://www.naukri.com/code360/problems/kevin-s-stack-problem_1169465?leftPanelT
 {
 solve this
 }
+
+
+//same or not hacker_rank_problem
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,m;
+    cin>>n>>m;
+    stack<int>st;
+    queue<int>q;
+    for(int i=0;i<n;i++)
+    {
+        int x;
+        cin>>x;
+        st.push(x);
+    }
+
+    for(int i=0;i<m;i++)
+    {
+        int y;
+        cin>>y;
+        q.push(y);
+    }
+
+    bool flag;
+    if(st.size()!=q.size())
+    {
+        cout<<"NO"<<endl;
+    }
+
+    else
+    {
+        while(!st.empty())
+        {
+            if(st.top() != q.front())    
+            {
+                flag=false;
+                break;
+            }
+            else
+            {
+                flag=true;
+                st.pop();
+                q.pop();
+            }
+        }
+        if(flag==true) cout<<"YES"<<endl;
+        else cout<<"NO"<<endl;
+    }
+
+
+    return 0;
+}
+
