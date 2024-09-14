@@ -328,6 +328,133 @@ public:
 
 
 https://leetcode.com/problems/backspace-string-compare/description/
+class Solution
+{
+public:
+    bool backspaceCompare(string s, string t)
+    {
+        stack<char> s1, s2;
+        for (char c : s)
+        {
+            if (c == '#')
+            {
+                if (!s1.empty())
+                    s1.pop();
+            }
+            else
+            {
+                s1.push(c);
+            }
+        }
+        for (char c : t)
+        {
+            if (c == '#')
+            {
+                if (!s2.empty())
+                    s2.pop();
+            }
+            else
+            {
+                s2.push(c);
+            }
+        }
+        return s1 == s2;
+    }
+};
+
+
+10101 #last digit
+
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        string s;
+        cin>>s;
+        stack<char>st;
+
+        for(char c:s)
+    {
+            if(st.empty())
+            {
+            st.push(c);
+            }
+        else if(c=='1' && st.top()=='0')
+        {
+            st.pop();
+        }
+        else if(c=='0' && st.top()=='1')
+        {
+            st.pop();
+        }
+        
+        else
+        {
+            st.push(c);
+        }
+    }
+
+        if(st.empty()) cout<<"YES"<<endl;
+        else
+        {
+            cout<<"NO"<<endl;
+        }
+    }
+
+    
+
+    return 0;
+}
+/*
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        string s;
+        cin>>s;
+        deque<char> q;
+
+        for(char c : s)
+        {
+            if(q.empty())
+            {
+                q.push_back(c);
+            }
+            else if((c == '1' && q.back() == '0') || (c == '0' && q.back() == '1'))
+            {
+                q.pop_back();
+            }
+            else
+            {
+                q.push_back(c);
+            }
+        }
+
+        if(q.empty()) 
+            cout << "YES" << endl;
+        else 
+            cout << "NO" << endl;
+    }
+
+    return 0;
+}
+
+*/
+
+
+
+
+
+
 
 https://www.naukri.com/code360/problems/maximum-equal-stack-sum_1062571?leftPanelTabValue=PROBLEM
 
@@ -561,4 +688,3 @@ int main()
 
     return 0;
 }
-
