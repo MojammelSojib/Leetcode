@@ -688,3 +688,51 @@ int main()
 
     return 0;
 }
+
+[[Is Node Present? - Coding Ninjas 
+Node Level - Coding Ninjas 
+Left View Of a Binary Tree - Coding Ninjas 
+Diameter Of Binary Tree - Coding Ninjas 
+Reverse Level Order Traversal - Coding Ninjas](https://docs.google.com/document/d/1UjqSc79POHOPFPt3Xwzpbgi0J4C1IGl0qY1qzJrFGwM/edit)](https://docs.google.com/document/d/1UjqSc79POHOPFPt3Xwzpbgi0J4C1IGl0qY1qzJrFGwM/edit)
+
+
+https://www.naukri.com/code360/problems/special-binary-tree_920502
+#include <bits/stdc++.h> 
+/*************************************************************
+
+    Following is the Binary Tree node structure
+
+    class BinaryTreeNode
+    {
+    public :
+        T data;
+        BinaryTreeNode<T> *left;
+        BinaryTreeNode<T> *right;
+
+        BinaryTreeNode(T data) {
+            this -> data = data;
+            left = NULL;
+            right = NULL;
+        }
+    };
+
+*************************************************************/
+
+bool isSpecialBinaryTree(BinaryTreeNode<int>* root)
+{
+    // Write your code here.
+    if(root->left==NULL && root->right==NULL) 
+        return true;
+    if(root->left==NULL || root->right==NULL)
+        return false;
+    bool l= isSpecialBinaryTree(root->left);
+    bool r= isSpecialBinaryTree(root->right);
+    if(l==false || r==false) return false;
+    return true;
+}
+
+
+
+
+
+
