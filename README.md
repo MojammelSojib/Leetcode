@@ -786,19 +786,77 @@ https://leetcode.com/problems/root-equals-sum-of-children/
  */
 class Solution {
 public:
-    bool checkTree(TreeNode* root) {
+    bool checkTree(TreeNode* root)
+   {
         if(root->val == root->left->val + root->right->val) 
               return true;
         else
-              return false; 
-        
-        
+              return false;
+   }
+};
+
+
+https://leetcode.com/problems/univalued-binary-tree/
+class Solution {
+public:
+    bool isUnivalTree(TreeNode* root) {
+        if(root==NULL) return true;
+        if (root->left != NULL && root->left->val != root->val) return false;
+       if (root->right != NULL && root->right->val != root->val) return false;
+
+
+         return isUnivalTree(root->left) && isUnivalTree(root->right);
+    }
+}; 
+
+or
+class Solution {
+public:
+    bool isUnivalTree(TreeNode* root) {
+        int x=root->val;
+        queue<TreeNode*>q;
+        q.push(root);
+        while(!q.empty())
+        {
+            TreeNode* y=q.front();
+            q.pop();
+            if(x!=y->val)  return false;
+            if(y->left) q.push(y->left);
+            if(y->right) q.push(y->right);
+        }
+        return true;
+
     }
 };
 
 
+https://leetcode.com/problems/same-tree/description/
 
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool isSameTree(TreeNode* p, TreeNode* q) 
+    {
+        if(p==NULL && q==NULL) 
+             return true;
+          
+        if( p== NULL || q ==NULL || p->val!=q->val)
+            return false;
+        
+        return isSameTree(p->left,q->left) && isSameTree(p->right,q->right);
+    }
 
+};
 
 
 
