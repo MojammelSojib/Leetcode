@@ -693,7 +693,7 @@ int main()
 Node Level - Coding Ninjas 
 Left View Of a Binary Tree - Coding Ninjas 
 Diameter Of Binary Tree - Coding Ninjas 
-Reverse Level Order Traversal - Coding Ninjas](https://docs.google.com/document/d/1UjqSc79POHOPFPt3Xwzpbgi0J4C1IGl0qY1qzJrFGwM/edit)](https://docs.google.com/document/d/1UjqSc79POHOPFPt3Xwzpbgi0J4C1IGl0qY1qzJrFGwM/edit)
+(https://docs.google.com/document/d/1UjqSc79POHOPFPt3Xwzpbgi0J4C1IGl0qY1qzJrFGwM/edit)](https://docs.google.com/document/d/1UjqSc79POHOPFPt3Xwzpbgi0J4C1IGl0qY1qzJrFGwM/edit)
 
 
 https://www.naukri.com/code360/problems/special-binary-tree_920502
@@ -730,6 +730,81 @@ bool isSpecialBinaryTree(BinaryTreeNode<int>* root)
     if(l==false || r==false) return false;
     return true;
 }
+
+https://www.naukri.com/code360/problems/reverse-level-order-traversal_764339?leftPanelTabValue=SUBMISSION
+/************************************************************
+
+    Following is the TreeNode class structure:
+
+    template <typename T>
+
+    class TreeNode {
+    public:
+        T val;
+        TreeNode<T> *left;
+        TreeNode<T> *right;
+        TreeNode(T val) {
+            this->val = val;
+            left = NULL;
+            right = NULL;
+        }
+    };
+
+************************************************************/
+#include<bits/stdc++.h>
+vector<int> reverseLevelOrder(TreeNode<int> *root){
+    // Write your code here.
+    vector<int>v;
+    queue<TreeNode<int> *>q;
+    if(root) q.push(root);
+    while(!q.empty())
+    {
+        TreeNode<int> * node=q.front();
+        q.pop();
+
+        v.push_back(node->val);
+
+        if(node->left) q.push(node->left);
+        if(node->right) q.push(node->right);
+    }
+    reverse (v.begin(),v.end());
+    return v; 
+}
+
+
+https://leetcode.com/problems/root-equals-sum-of-children/
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool checkTree(TreeNode* root) {
+        if(root->val == root->left->val + root->right->val) 
+              return true;
+        else
+              return false; 
+        
+        
+    }
+};
+
+
+
+
+
+
+
+
+
+
 
 
 
